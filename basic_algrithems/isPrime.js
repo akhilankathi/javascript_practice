@@ -8,15 +8,16 @@
 const isPrimeFunc = (num)=>{
 
     if(num < 2)  return false 
-    if(num == 2 || num == 3)  return true
-
-    for ( let i = 4 ; i < Math.sqrt(num) ; i++){
+    for ( let i = 2 ; i <= Math.sqrt(num) ; i++){
         if ( num % i === 0){
             return false 
         }
     }
 
-    //   for ( let i = 2 ; i < num ; i++){
+    //    if(num < 2)  return false 
+    // if(num == 2 || num == 3)  return true
+
+    //   for ( let i = 3 ; i < num ; i++){
     //     if ( num % i === 0){
     //         return false 
     //     }
@@ -25,7 +26,19 @@ const isPrimeFunc = (num)=>{
 
 }
 
-console.log(isPrimeFunc(10))
-console.log(isPrimeFunc(7))
-console.log(isPrimeFunc(19))
-console.log(isPrimeFunc(13))
+// console.log(isPrimeFunc(10))
+// console.log(isPrimeFunc(7))
+// console.log(isPrimeFunc(19))
+// console.log(isPrimeFunc(13))
+
+const filterPrimeNumbers = (arr)=>{
+let filteredArr =[]
+    for ( let i = 0 ; i < arr.length - 1 ; i++){
+        if(isPrimeFunc(arr[i])){
+            filteredArr.push(arr[i])
+        }
+    }
+    return filteredArr
+}
+
+console.log(filterPrimeNumbers([13,34,5,6,9,12]))
